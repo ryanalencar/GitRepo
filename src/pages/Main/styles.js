@@ -13,10 +13,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
 
-  svg {
-    margin-right: 10px;
+    svg {
+      margin-right: 10px;
+    }
   }
 `;
 
@@ -34,9 +34,10 @@ export const Form = styled.form`
   }
 `;
 
-export const SubmitButton = styled.button.attrs({
+export const SubmitButton = styled.button.attrs((props) => ({
   type: 'submit',
-})`
+  disabled: props.loading,
+}))`
   background-color: #7159c1;
   border: 0;
   border-radius: 4px;
@@ -46,4 +47,9 @@ export const SubmitButton = styled.button.attrs({
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 `;
