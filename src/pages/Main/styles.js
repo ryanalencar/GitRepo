@@ -70,3 +70,32 @@ export const SubmitButton = styled.button.attrs((props) => ({
       }
     `}
 `;
+
+export const List = styled.ul`
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 80px auto;
+
+  list-style: none;
+
+  li {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & + li {
+      border-top: 2px solid #eee;
+    }
+
+    a {
+      font-weight: lighter;
+      color: #7159c1;
+      text-decoration: none;
+    }
+  }
+`;
