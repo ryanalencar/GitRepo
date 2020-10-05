@@ -75,11 +75,17 @@ export const List = styled.ul`
   max-width: 700px;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin: 80px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 
   list-style: none;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1.01);
+  }
 
   li {
     padding: 15px 0;
