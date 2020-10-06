@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ImSpinner2 } from 'react-icons/im';
+import { FaArrowLeft } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
+
+import Container from '../../components/Container';
+import { Loading, Owner } from './styles';
 
 class Repository extends Component {
   constructor(props) {
@@ -28,8 +34,6 @@ class Repository extends Component {
       }),
     ]);
 
-    // console.log(repository, issues);
-
     this.setState({
       repository: repository.data,
       issues: issues.data,
@@ -40,7 +44,27 @@ class Repository extends Component {
   render() {
     const { issues, loading, repository } = this.state;
 
-    return <h1>Repository:</h1>;
+    if (loading) {
+      return (
+        <Loading loading={loading}>
+          <ImSpinner2 size={100} />
+        </Loading>
+      );
+    }
+
+    return (
+      <Container>
+        <Owner>
+          <Link to="/">
+            <FaArrowLeft />
+            Voltar aos repositórios
+          </Link>
+          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+          <h1>{repository.name}</h1>
+          <p>{repository.description}</p>
+        </Owner>
+      </Container>
+    );
   }
 }
 
