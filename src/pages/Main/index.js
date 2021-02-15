@@ -49,6 +49,11 @@ class Main extends Component {
 
     const response = await api.get(`/repos/${newRepo}`);
 
+    if (!response) {
+      alert('repositorio não encontrado');
+      return false;
+    }
+
     const data = {
       name: response.data.full_name,
     };
